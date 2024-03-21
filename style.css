@@ -25,7 +25,7 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    right: -70px; /* Ajusta según el ancho deseado de la línea */
+    right: -60px; /* Ajusta según el ancho deseado de la línea */
     width: 5px;
     height: 100%;
     background-color: #000; /* Color de la línea */
