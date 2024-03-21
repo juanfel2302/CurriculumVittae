@@ -1,0 +1,77 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.1;
+    display: flex;
+    justify-content: center; /* Centra el contenido principal */
+}
+
+/* Estilo de la barra lateral */
+.sidebar {
+    background-color: #D5F5E3; /* Color azul oscuro */
+    color: #000;
+    padding: 10px;
+    width: 320px;
+    flex-shrink: 0; /* Asegura que la barra lateral no cambie de tamaño */
+}
+
+.profile-image {
+    border: 5x solid white;
+    border-radius: 50%;
+    width: 225px;
+    height: 225px;
+}
+
+section {
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #FDFEFE;
+    border-radius: 35px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 75%;
+    max-width: 960px;
+    align-items: left;
+}
+
+
+/* Estilo para el contenido principal */
+.main-content {
+    background-color: #FDFEFE;
+    padding: 30px;
+    width: calc(100% - 300px); /* Ajusta esto según el ancho de tu barra lateral */
+    margin-left: 0px;
+    /* Otros estilos... */
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+}
+
+.sidebar {
+    position: relative; /* Posición relativa para el posicionamiento del pseudo-elemento */
+    /* ... tus otros estilos ... */
+}
+
+/* Pseudo-elemento para crear la línea vertical */
+.sidebar::after {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    position: absolute; /* Posicionamiento absoluto respecto a su contenedor relativo */
+    top: 55px; /* Alineación superior con la barra lateral */
+    right: -70px; /* Alineación a la derecha dentro de la barra lateral */
+    width: 5px; /* Ancho de la línea vertical */
+    height: 95%; /* Altura para que se extienda por toda la barra lateral */
+    background-color: #000; /* Color de la línea */
+}
+/* Añade aquí todos tus estilos adicionales para las secciones y los artículos dentro del main-content */
+
