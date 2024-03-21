@@ -9,15 +9,6 @@ body {
     justify-content: center; /* Centra el contenido principal en dispositivos de escritorio */
     flex-wrap: wrap; /* Permite que los elementos se ajusten en la pantalla */
 }
-.sidebar::after {
-    content: ''; /* Necesario para que el pseudo-elemento se muestre */
-    position: absolute; /* Posicionamiento absoluto respecto a su contenedor relativo */
-    top: 55px; /* Alineación superior con la barra lateral */
-    right: -70px; /* Alineación a la derecha dentro de la barra lateral */
-    width: 5px; /* Ancho de la línea vertical */
-    height: 95%; /* Altura para que se extienda por toda la barra lateral */
-    background-color: #000; /* Color de la línea */
-}
 
 /* Estilo de la barra lateral */
 .sidebar {
@@ -26,6 +17,18 @@ body {
     padding: 10px;
     width: 320px; /* Ancho fijo para dispositivos de escritorio */
     box-sizing: border-box; /* Asegura que padding no afecte el ancho total */
+    position: relative; /* Posicionamiento para el pseudo-elemento de la línea */
+}
+
+/* Pseudo-elemento para la línea decorativa solo en escritorio */
+.sidebar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -70px; /* Ajusta según el ancho deseado de la línea */
+    width: 5px;
+    height: 100%;
+    background-color: #000; /* Color de la línea */
 }
 
 .profile-image {
@@ -67,9 +70,13 @@ section {
         margin-left: 0; /* Elimina el margen izquierdo en dispositivos móviles */
     }
 
+    .sidebar::after {
+        display: none; /* Oculta la línea decorativa en dispositivos móviles */
+    }
+
     .profile-image {
-        width: 170px; /* Tamaño de imagen ajustado para dispositivos móviles */
-        height: 170px;
+        width: 150px; /* Tamaño de imagen ajustado para dispositivos móviles */
+        height: 150px;
     }
 
     section {
