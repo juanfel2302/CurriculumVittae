@@ -19,7 +19,7 @@ body {
 }
 
 .profile-image {
-    border: 5px solid white;
+    border: 5x solid white;
     border-radius: 50%;
     width: 225px;
     height: 225px;
@@ -47,7 +47,7 @@ section {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .sidebar {
         width: 100%;
         margin-bottom: 20px;
@@ -55,10 +55,22 @@ section {
 
     .main-content {
         width: 100%;
-        margin-left: 0; /* Reset del margen izquierdo */
-    }
-    
-    .sidebar::after {
-        display: none; /* Oculta la línea vertical en dispositivos móviles */
     }
 }
+
+.sidebar {
+    position: relative; /* Posición relativa para el posicionamiento del pseudo-elemento */
+    /* ... tus otros estilos ... */
+}
+
+/* Pseudo-elemento para crear la línea vertical */
+.sidebar::after {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    position: absolute; /* Posicionamiento absoluto respecto a su contenedor relativo */
+    top: 55px; /* Alineación superior con la barra lateral */
+    right: -70px; /* Alineación a la derecha dentro de la barra lateral */
+    width: 5px; /* Ancho de la línea vertical */
+    height: 95%; /* Altura para que se extienda por toda la barra lateral */
+    background-color: #000; /* Color de la línea */
+}
+/* Añade aquí todos tus estilos adicionales para las secciones y los artículos dentro del main-content */
