@@ -6,22 +6,25 @@ body {
     background-color: #f4f4f4;
     line-height: 1.1;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Cambio importante para apilar en móviles */
+    align-items: center; /* Asegura que el contenido esté centrado */
 }
 
+/* Estilo de la barra lateral */
 .sidebar {
-    background-color: #D5F5E3;
+    background-color: #D5F5E3; /* Color azul claro */
     color: #000;
     padding: 10px;
-    width: 320px;
-    flex-shrink: 0;
+    width: 100%; /* Cambio importante para ocupar el ancho completo */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
 }
 
 .profile-image {
     border: 5px solid white;
     border-radius: 50%;
-    width: 225px;
-    height: 225px;
+    width: 50%; /* Tamaño relativo para adaptarse a diferentes pantallas */
+    max-width: 225px; /* Ancho máximo para pantallas grandes */
+    height: auto; /* Altura automática para mantener la proporción */
     display: block;
     margin: 0 auto;
 }
@@ -32,55 +35,54 @@ section {
     background-color: #FDFEFE;
     border-radius: 35px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    width: 75%;
+    width: 90%; /* Ancho relativo para adaptarse a la pantalla */
     max-width: 960px;
 }
 
+/* Estilo para el contenido principal */
 .main-content {
     background-color: #FDFEFE;
     padding: 30px;
-    width: calc(100% - 340px);
-    margin-left: 20px;
+    width: 100%; /* Ajuste para que ocupe el ancho completo */
+    box-sizing: border-box; /* Considerar padding y bordes en el ancho total */
+    margin: 0;
 }
 
+/* Pseudo-elemento para la línea vertical, oculto por defecto */
 .sidebar::after {
-    content: '';
-    position: absolute;
-    top: 55px;
-    right: -70px;
-    width: 5px;
-    height: 95%;
-    background-color: #000;
+    display: none;
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 968px) {
+/* Estilos para pantallas más grandes */
+@media (min-width: 968px) {
     body {
-        flex-direction: column; /* Apila los elementos verticalmente */
-    }
-    
-    .sidebar, .main-content {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        box-sizing: border-box;
+        flex-direction: row; /* En pantallas grandes, usa disposición en fila */
     }
 
-    .sidebar::after {
-        display: none;
-    }
-
-    .main-content {
-        margin-left: 0;
+    .sidebar {
+        width: 320px; /* Ancho fijo para la barra lateral en pantallas grandes */
+        margin-right: 20px; /* Espaciado entre sidebar y contenido principal */
     }
 
     .profile-image {
-        width: 150px;
-        height: 150px;
+        width: 225px; /* Ancho fijo para la imagen en pantallas grandes */
+    }
+
+    .main-content {
+        width: calc(100% - 340px); /* Ajustar ancho basado en el de la sidebar */
+    }
+
+    .sidebar::after {
+        display: block; /* Muestra la línea vertical solo en pantallas grandes */
+        position: absolute;
+        top: 55px;
+        right: -15px;
+        width: 5px;
+        height: 95%;
+        background-color: #000;
     }
 
     section {
-        width: auto;
-        margin: 10px;
+        width: 75%; /* Ancho ajustado para secciones en pantallas grandes */
     }
 }
