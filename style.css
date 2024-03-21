@@ -6,17 +6,15 @@ body {
     background-color: #f4f4f4;
     line-height: 1.1;
     display: flex;
-    justify-content: center; /* Centra el contenido principal */
+    justify-content: center;
 }
 
-/* Estilo de la barra lateral */
 .sidebar {
-    background-color: #D5F5E3; /* Color azul claro */
+    background-color: #D5F5E3;
     color: #000;
     padding: 10px;
     width: 320px;
-    flex-shrink: 0; /* Asegura que la barra lateral no cambie de tamaño */
-    position: relative; /* Posición relativa para el posicionamiento del pseudo-elemento */
+    flex-shrink: 0;
 }
 
 .profile-image {
@@ -24,8 +22,8 @@ body {
     border-radius: 50%;
     width: 225px;
     height: 225px;
-    display: block; /* Asegurar que la imagen es un bloque para centrarla */
-    margin: 0 auto; /* Centrar la imagen */
+    display: block;
+    margin: 0 auto;
 }
 
 section {
@@ -36,42 +34,40 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     width: 75%;
     max-width: 960px;
-    align-items: left;
 }
 
-/* Estilo para el contenido principal */
 .main-content {
     background-color: #FDFEFE;
     padding: 30px;
-    width: calc(100% - 340px); /* Ajusta esto según el ancho de tu barra lateral */
+    width: calc(100% - 340px);
     margin-left: 20px;
-    /* Otros estilos... */
 }
 
-/* Pseudo-elemento para crear la línea vertical */
 .sidebar::after {
-    content: ''; /* Necesario para que el pseudo-elemento se muestre */
-    position: absolute; /* Posicionamiento absoluto respecto a su contenedor relativo */
-    top: 55px; /* Alineación superior con la barra lateral */
-    right: -70px; /* Alineación a la derecha dentro de la barra lateral */
-    width: 5px; /* Ancho de la línea vertical */
-    height: 95%; /* Altura para que se extienda por toda la barra lateral */
-    background-color: #000; /* Color de la línea */
+    content: '';
+    position: absolute;
+    top: 55px;
+    right: -70px;
+    width: 5px;
+    height: 95%;
+    background-color: #000;
 }
-
-/* Añade aquí todos tus estilos adicionales para las secciones y los artículos dentro del main-content */
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 968px) {
+    body {
+        flex-direction: column; /* Apila los elementos verticalmente */
+    }
+    
     .sidebar, .main-content {
         width: 100%;
         padding: 10px;
         margin-bottom: 20px;
-        box-sizing: border-box; /* Asegúrate de que el padding no afecte al ancho total */
+        box-sizing: border-box;
     }
 
     .sidebar::after {
-        display: none; /* Esconde la línea vertical en dispositivos móviles */
+        display: none;
     }
 
     .main-content {
@@ -79,12 +75,12 @@ section {
     }
 
     .profile-image {
-        width: 150px; /* Tamaño más pequeño para dispositivos móviles */
+        width: 150px;
         height: 150px;
     }
 
     section {
-        width: auto; /* Hace que la sección se ajuste automáticamente al ancho del sidebar */
+        width: auto;
         margin: 10px;
     }
 }
